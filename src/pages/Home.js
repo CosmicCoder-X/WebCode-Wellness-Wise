@@ -1,45 +1,32 @@
+// src/pages/Home.js
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './Home.css'; // Import the Home-specific CSS
 
-function Home() {
+const Home = () => {
   return (
-    <div style={styles.container}>
-      <h1>Welcome to Your Health & Wellness Tracker</h1>
-      <p>Track your sleep, meals, exercise, and mood to improve your well-being.</p>
-      
-      <div style={styles.buttonContainer}>
-        <Link to="/login" style={styles.button}>
-          Log In
-        </Link>
-        <Link to="/signup" style={styles.button}>
-          Sign Up
-        </Link>
+    <div className="home-container">
+      <div className="home-hero">
+        <h1>Welcome to Your Health and Wellness App</h1>
+        <p>Track your daily activities, log your mood, and set health goals.</p>
+        <button className="hero-button">Get Started</button>
+      </div>
+
+      <div className="home-features">
+        <div className="feature-card">
+          <h2>Activity Logger</h2>
+          <p>Log your daily exercise, sleep, and meals to stay on track.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Mood Tracker</h2>
+          <p>Record your emotions to understand your mental well-being.</p>
+        </div>
+        <div className="feature-card">
+          <h2>Health Tips</h2>
+          <p>Access curated articles and videos for healthy living.</p>
+        </div>
       </div>
     </div>
   );
-}
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    marginTop: '50px',
-    padding: '20px',
-  },
-  buttonContainer: {
-    marginTop: '20px',
-    display: 'flex',
-    gap: '10px',
-  },
-  button: {
-    padding: '10px 20px',
-    backgroundColor: '#007BFF',
-    color: '#fff',
-    textDecoration: 'none',
-    borderRadius: '5px',
-  },
 };
 
 export default Home;

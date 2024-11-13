@@ -1,30 +1,42 @@
+// src/pages/Login.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import './Login.css'; // Import the Login-specific CSS
 
-function Login() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('/api/login', { email, password });
-      console.log(response.data); // Handle login success
-    } catch (error) {
-      console.error('Login failed:', error);
-    }
+    console.log('Logging in with', { email, password });
+    // Add login functionality here
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
-        <button type="submit">Login</button>
-      </form>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Log In</button>
+        </form>
+        <p className="signup-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;
